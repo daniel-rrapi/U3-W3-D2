@@ -17,7 +17,17 @@ export class SignupComponent implements OnInit {
   generi = ['uomo', 'donna', 'ermafrodita'];
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      userInfo: this.fb.group({
+        username: this.fb.control(null)
+        email: this.fb.control(null, [
+          Validators.required, Validators.email,
+        ])
+      })
+      genere: this.form.control('donna')
+    })
+  }
 
   submit() {
     console.log(this.form);

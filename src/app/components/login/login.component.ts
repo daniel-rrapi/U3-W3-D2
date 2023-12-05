@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  user: any = {
-    email: '',
-    password: '',
-  };
+  // user: any = {
+  //   email: '',
+  //   password: '',
+  // };
   constructor() {}
 
   @ViewChild('form', { static: true }) form!: NgForm;
