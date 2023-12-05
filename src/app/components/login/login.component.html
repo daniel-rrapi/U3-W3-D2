@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Login</h1>
+  <form #form="ngForm" (ngSubmit)="submit()">
+    <div ngModelGroup="userInfo" id="userInfo" #userGroup="ngModelGroup">
+      <div class="form-group">
+        <label for="email">email</label>
+        <input
+          type="text"
+          id="email"
+          [ngModel]="userForm.email"
+          name="email"
+          class="form-control"
+          required
+          #email="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input
+          type="password"
+          id="password"
+          [ngModel]="userForm.password"
+          name="passwrod"
+          class="form-control"
+          required
+          #password="ngModel"
+          ngModel
+          pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary mt-3"
+        [disabled]="form.invalid"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>
